@@ -1,0 +1,43 @@
+---
+version: '3.7'
+
+services:
+  hcc2-hello-world:
+    #image: ~
+    image: registry.hub.docker.com/library/hello-world:linux
+    container_name: hcc2-hello-world
+    stdin_open: true
+    tty: true
+    restart: on-failure
+    read_only: true
+    #ports:
+      #- '8080:8080/tcp'
+    networks:
+      - edgenet
+    environment:
+      # SUB_STRING: tcp://zmqproxy:3000
+      # PUB_STRING: tcp://zmqproxy:3001
+      # CM_REQ_STRING: tcp://configmgr:5000
+      # EVENTMGR_REQ_STRING: tcp://eventmgr_0:7000
+      # DATALOGGER_REP_STRING: tcp://dataLogger_0:7700
+      # CACHE_REQ_STRING: tcp://zmqproxy:3002
+      # PULL_STRING: tcp://hello-world:3500
+      WEB_CLIENT_CERTIFICATE: /tls/cert.pem
+      WEB_PRIVATE_KEY: /tls/key.pem
+      WEB_ROOT_CERTIFICATE: /tls/ca.pem
+
+    #tmpfs:
+    #  - /temp:uid=31416,gid=31416
+    #volumes:
+    #  - /data/state/tls:/tls:ro
+    #  - hello_debug_vol:/debug:rw
+networks:
+  edgenet:
+    external: true
+
+# volumes:
+#   hello_debug_vol:
+#     name: hello_debug_vol  
+#   core_provision_vol:
+#     name: core_provision_vol  
+...
