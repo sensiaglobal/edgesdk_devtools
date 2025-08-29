@@ -40,6 +40,6 @@ Follow this step each time your application container is built and ready to be d
 # Repo contents
 See the readme of the individual scripts for additional details and options.  
 - container2mender.sh and script2mender.sh : support scripts used for building locally or in a pipeline, not recommended to be run directly.  
-- gen_local_keys.sh : tool for generating signing keys for your mender artifact.  Only required when generating a vendory key to be approved by Sensia, or when using temporary keys with root access.  
+- gen_local_keys.sh : tool for generating signing keys for your mender artifact.  Only required when generating a vendor key to be approved by Sensia, or when using temporary keys with root access.  
 - package_app.sh : tool for taking a .yml file describing a docker container to be run in the HCC2 and creating a signed mender file  
 - /test/test.yml : a example .yml file which can be passed to package_app.sh to package the docker hub hosted hello-world container to be run on your HCC2.  Useful for testing the build tools and that your key was loaded properly.  
